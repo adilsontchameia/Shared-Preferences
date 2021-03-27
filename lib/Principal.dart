@@ -10,14 +10,14 @@ class Principal extends StatefulWidget {
 
 class _PrincipalState extends State<Principal> {
   //Texto da View
-  String textoSalvo = "Nada Salvo";
+  String _textoSalvo = "Nada Salvo";
   //Pegar o que vem dos textFields
   TextEditingController _controllerCampo = TextEditingController();
   //Metodo para salvar/recuperar/remover
   //O processo pode levar um tempinho
   _salvar() async {
     String valorDigitado = _controllerCampo.text;
-    //Recuperar o objeto que vai permitir manipular
+    //Salvar o objeto que vai permitir manipular
     final prefs = await SharedPreferences.getInstance();
     //Salvar / string / bool / int / listaString
     //A chave sera usada para, salvar, recuperar, remover
@@ -27,7 +27,20 @@ class _PrincipalState extends State<Principal> {
     print("Salvar: $valorDigitado");
   }
 
-  _recupperar() {}
+  _recupperar() async {
+    String valorDigitado = _controllerCampo.text;
+    //Recuperar o objeto que vai permitir manipular
+    final prefs = await SharedPreferences.getInstance();
+    //Salvar / string / bool / int / listaString
+    //Usar a chave para, recuperar
+    setState(() {
+      _textoSalvo = prefs.getString("nome");
+    });
+
+    //Teste para verificar
+    print("Recuperar: $_textoSalvo");
+  }
+
   _remover() {}
   @override
   Widget build(BuildContext context) {
@@ -40,7 +53,7 @@ class _PrincipalState extends State<Principal> {
         child: Column(
           children: [
             Text(
-              textoSalvo,
+              _textoSalvo,
               style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
             ),
             TextField(
