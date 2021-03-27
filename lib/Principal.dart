@@ -6,7 +6,7 @@ class Principal extends StatefulWidget {
 }
 
 class _PrincipalState extends State<Principal> {
-  Tex
+  TextEditingController _controllerCampo = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,10 +23,25 @@ class _PrincipalState extends State<Principal> {
             ),
             TextField(
               keyboardType: TextInputType.text,
-              decoration: InputDecoration(
-                labelText: "Digite algo"
-              ),
-           
+              decoration: InputDecoration(labelText: "Digite algo"),
+              controller: _controllerCampo,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      padding: EdgeInsets.only(left: 50, right: 50)),
+                  child: Text("Salvar"),
+                  onPressed: () {},
+                ),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      padding: EdgeInsets.only(left: 50, right: 50)),
+                  child: Text("Salvar"),
+                  onPressed: () {},
+                ),
+              ],
             )
           ],
         ),
