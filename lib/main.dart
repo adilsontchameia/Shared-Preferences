@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/Principal.dart';
+import 'package:preferencias_usuario/Principal.dart';
 
 void main() {
   runApp(MaterialApp(
