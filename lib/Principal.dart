@@ -18,8 +18,13 @@ class _PrincipalState extends State<Principal> {
   _salvar() async {
     String valorDigitado = _controllerCampo.text;
     //Recuperar o objeto que vai permitir manipular
-    final prefs = SharedPreferences.getInstance();
-    
+    final prefs = await SharedPreferences.getInstance();
+    //Salvar / string / bool / int / listaString
+    //A chave sera usada para, salvar, recuperar, remover
+    await prefs.setString("nome", valorDigitado);
+
+    //Teste para verificar
+    print("Salvar: $valorDigitado");
   }
 
   _recupperar() {}
