@@ -34,14 +34,24 @@ class _PrincipalState extends State<Principal> {
     //Salvar / string / bool / int / listaString
     //Usar a chave para, recuperar
     setState(() {
-      _textoSalvo = prefs.getString("nome");
+      //Caso seja nulo, vamos colocar sem valor
+      _textoSalvo = prefs.getString("nome") ?? "Sem Valor";
     });
 
     //Teste para verificar
     print("Recuperar: $_textoSalvo");
   }
 
-  _remover() {}
+  _remover() async {
+    //Recuperar o objeto que vai permitir manipular
+    final prefs = await SharedPreferences.getInstance();
+    if (prefs.remove("nome") != null) {
+      print("Removido com Sucesso");
+    } else {
+      print("Ocorreu um erro ao salvae");
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
