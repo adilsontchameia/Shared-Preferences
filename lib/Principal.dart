@@ -6,7 +6,11 @@ class Principal extends StatefulWidget {
 }
 
 class _PrincipalState extends State<Principal> {
+  //Pegar o que vem dos textFields
   TextEditingController _controllerCampo = TextEditingController();
+  //Metodo para salvar e recuperar
+  _salvar() {}
+  _recupperar() {}
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,13 +37,13 @@ class _PrincipalState extends State<Principal> {
                   style: ElevatedButton.styleFrom(
                       padding: EdgeInsets.only(left: 50, right: 50)),
                   child: Text("Salvar"),
-                  onPressed: () {},
+                  onPressed: _salvar(),
                 ),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
                       padding: EdgeInsets.only(left: 50, right: 50)),
-                  child: Text("Salvar"),
-                  onPressed: () {},
+                  child: Text("Vizualizar"),
+                  onPressed: _recupperar(),
                 ),
               ],
             )
